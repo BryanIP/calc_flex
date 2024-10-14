@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 class LoadingButton extends StatelessWidget {
-  var busy = false;
-  var invert = false;
-  VoidCallback? func;
-  var text = "";
+  final bool busy;
+  final bool invert;
+  final VoidCallback func;
+  final String text;
 
-  LoadingButton({
+  const LoadingButton({
     super.key,
     required this.busy,
     required this.invert,

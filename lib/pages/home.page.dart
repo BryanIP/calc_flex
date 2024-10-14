@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage> {
             const Logo(),
             _completed
                 ? Success(
-                    result: _resultText,
+                    resultText: _resultText,
                     reset: reset,
                   )
                 : SubmitForm(

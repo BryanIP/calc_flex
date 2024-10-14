@@ -2,12 +2,12 @@ import 'package:calc_flex/widgets/loading_button.widget.dart';
 import 'package:flutter/material.dart';
 
 class Success extends StatelessWidget {
-  var result = "";
-  VoidCallback reset;
+  final String resultText;
+  final VoidCallback reset;
 
-  Success({
+  const Success({
     super.key,
-    required this.result,
+    required this.resultText,
     required this.reset,
   });
 
@@ -25,10 +25,10 @@ class Success extends StatelessWidget {
             height: 30.0,
           ),
           Text(
-            result,
+            resultText,
             style: TextStyle(
               color: Theme.of(context).primaryColor,
-              fontSize: 40.0,
+              fontSize: 35.0,
               fontFamily: "Big Shoulders Display",
             ),
           ),

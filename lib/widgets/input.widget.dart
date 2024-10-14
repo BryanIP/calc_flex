@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 
 class Input extends StatelessWidget {
-  var label = "";
-  var ctrl = MoneyMaskedTextController();
+  final String label;
+  final MoneyMaskedTextController ctrl;
 
-  Input({
+  const Input({
     super.key,
     required this.label,
     required this.ctrl,
@@ -34,6 +34,7 @@ class Input extends StatelessWidget {
           child: TextFormField(
             controller: ctrl,
             keyboardType: TextInputType.number,
+            cursorColor: Colors.white,
             style: const TextStyle(
               color: Colors.white,
               fontSize: 45.0,

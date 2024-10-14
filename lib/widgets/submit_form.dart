@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 
 class SubmitForm extends StatelessWidget {
-  var etnCtrl = MoneyMaskedTextController();
-  var gasCtrl = MoneyMaskedTextController();
-  var busy = false;
-  VoidCallback submitFunc;
+  final MoneyMaskedTextController etnCtrl;
+  final MoneyMaskedTextController gasCtrl;
+  final bool busy;
+  final VoidCallback submitFunc;
 
-  SubmitForm({
+  const SubmitForm({
     super.key,
     required this.etnCtrl,
     required this.gasCtrl,
