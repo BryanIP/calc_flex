@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class LoadingButton extends StatelessWidget {
+class LoadingButton extends StatefulWidget {
   final bool busy;
   final bool invert;
   final VoidCallback func;
@@ -15,8 +15,15 @@ class LoadingButton extends StatelessWidget {
   });
 
   @override
+  State<LoadingButton> createState() => _LoadingButtonState();
+}
+
+class _LoadingButtonState extends State<LoadingButton> {
+  Color _borderColor = Colors.transparent;
+
+  @override
   Widget build(BuildContext context) {
-    return busy
+    return widget.busy
         ? Container(
             alignment: Alignment.center,
             height: 50.0,
@@ -29,17 +36,32 @@ class LoadingButton extends StatelessWidget {
             height: 60.0,
             width: double.infinity,
             decoration: BoxDecoration(
-              color: invert
+              color: widget.invert
                   ? Theme.of(context).primaryColor
                   : Colors.white.withOpacity(0.8),
+              border: Border.all(
+                color: _borderColor,
+                style: BorderStyle.solid,
+                strokeAlign: BorderSide.strokeAlignOutside,
+                width: 2.0,
+              ),
               borderRadius: BorderRadius.circular(60.0),
             ),
             child: TextButton(
-              onPressed: func,
+              onPressed: widget.func,
+              onFocusChange: (value) {
+                setState(() {
+                  _borderColor = (value && !widget.invert)
+                      ? Colors.pink
+                      : Colors.transparent;
+                });
+              },
               child: Text(
-                text.toUpperCase(),
+                widget.text.toUpperCase(),
                 style: TextStyle(
-                  color: invert ? Colors.white : Theme.of(context).primaryColor,
+                  color: widget.invert
+                      ? Colors.white
+                      : Theme.of(context).primaryColor,
                   fontSize: 25.0,
                   fontFamily: "Big Shoulders Display",
                 ),

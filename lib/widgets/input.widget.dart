@@ -34,6 +34,7 @@ class Input extends StatelessWidget {
           child: TextFormField(
             controller: ctrl,
             keyboardType: TextInputType.number,
+            textInputAction: TextInputAction.next,
             cursorColor: Colors.white,
             style: const TextStyle(
               color: Colors.white,
