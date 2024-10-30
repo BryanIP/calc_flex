@@ -21,28 +21,31 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
-      body: AnimatedContainer(
-        duration: const Duration(
-          milliseconds: 1200,
-        ),
-        color: _color,
-        child: ListView(
-          children: [
-            const Logo(),
-            _completed
-                ? Success(
-                    resultText: _resultText,
-                    reset: reset,
-                  )
-                : SubmitForm(
-                    etnCtrl: _etnCtrl,
-                    gasCtrl: _gasCtrl,
-                    busy: _busy,
-                    submitFunc: calculate,
-                  )
-          ],
+    return GestureDetector(
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      child: Scaffold(
+        backgroundColor: Theme.of(context).primaryColor,
+        body: AnimatedContainer(
+          duration: const Duration(
+            milliseconds: 1200,
+          ),
+          color: _color,
+          child: ListView(
+            children: [
+              const Logo(),
+              _completed
+                  ? Success(
+                      resultText: _resultText,
+                      reset: reset,
+                    )
+                  : SubmitForm(
+                      etnCtrl: _etnCtrl,
+                      gasCtrl: _gasCtrl,
+                      busy: _busy,
+                      submitFunc: calculate,
+                    )
+            ],
+          ),
         ),
       ),
     );
