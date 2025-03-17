@@ -13,8 +13,8 @@ jobs:
       - name: Setup Flutter SDK
         uses: flutter-actions/setup-flutter@v4
         with:
-          channel: beta
-          version: 3.19.0-0.3.pre
+          channel: stable
+          version: 3.29.2
 
       - name: Install dependencies
         run: flutter pub get
