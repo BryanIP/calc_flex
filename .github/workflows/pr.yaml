@@ -10,9 +10,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Message
-        run: |
-          branch_name = "${GITHUB_HEAD_REF}"
-          commit_message = $(git log -1 --pretty=%B)
-          text = "${branch_name} - ${commit_message}"
-          echo "commit_message = $text"
+      - name: SHA Commit
+        run: commit_sha="${{github.event.pull_request.head.sha}}"
+
+      - name: Commit Message
+        run: commit_message=$(git log -1 --pretty=%B ${{env.commit_sha}})
+      
+      - name: Summary
+        run: echo "commit_message = ${{env.commit_message}}"
