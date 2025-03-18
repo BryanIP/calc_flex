@@ -20,4 +20,4 @@ jobs:
       
       - name: Summary
         run: |
-          echo "commit_message = ${{github.GITHUB_HEAD_REF}} - $(git log -1 --pretty=%B)
+          echo "commit_message = ${GITHUB_HEAD_REF}- $(git log -1 --pretty=%B)
