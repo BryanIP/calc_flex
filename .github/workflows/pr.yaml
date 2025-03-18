@@ -21,4 +21,4 @@ jobs:
       - name: Summary
         run: |
           commit_message = $(git log -1 --pretty=%B)
-          echo "commit_message = $commit_message"
+          echo "commit_message = ${commit_message}"
