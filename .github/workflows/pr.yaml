@@ -10,11 +10,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: SHA Commit
-        run: commit_sha="${{github.event.pull_request.head.sha}}"
+      - name: Clone repository
+        run: git clone https://github.com/BryanIP/calc_flex.git
 
-      - name: Commit Message
-        run: commit_message=$(git log -1 --pretty=%B ${commit_sha})
+      - name: Checkout branch
+        run: git checkout ${GITHUB_HEAD_REF}
       
       - name: Summary
-        run: echo "commit_message = ${env.commit_message}"
+        run: |
+          commit_message = $(git log -1 --pretty=%B)
+          echo "commit_message = ${commit_message}"
