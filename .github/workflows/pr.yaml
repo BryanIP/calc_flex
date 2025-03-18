@@ -14,7 +14,9 @@ jobs:
         run: git clone https://github.com/BryanIP/calc_flex.git
 
       - name: Checkout branch
-        run: git checkout ${GITHUB_HEAD_REF}
+        run: |
+          git fetch
+          git checkout ${GITHUB_HEAD_REF}
       
       - name: Summary
         run: |
