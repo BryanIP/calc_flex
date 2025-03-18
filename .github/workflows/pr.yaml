@@ -12,5 +12,5 @@ jobs:
 
       - name: Commit message
         run: |
-          commit_message="${GITHUB_HEAD_REF} - ${{github.event.pull_request.body}}"
+          commit_message="${GITHUB_HEAD_REF} - $(git log -1 --pretty=%B $GITHUB_SHA)"
           echo "commit_message = $commit_message"
