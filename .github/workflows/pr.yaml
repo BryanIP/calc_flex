@@ -12,5 +12,5 @@ jobs:
 
       - name: Commit message
         run:  |
-          commit_message = "${{github.head_ref}} - ${{github.commit_message}}"
+          commit_message = "${github.head_ref} - ${github.commit_message}"
           echo "commit_message = $commit_message"
