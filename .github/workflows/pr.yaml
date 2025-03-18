@@ -11,4 +11,6 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Commit message
-        run: echo "The branch name is ${{github.head_ref}}"
+        run:  |
+          commit_message = "${{github.head_ref}} - ${{github.commit_message}}"
+          echo "commit_message = ${commit_message}"
