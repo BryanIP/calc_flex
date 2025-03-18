@@ -12,7 +12,7 @@ jobs:
 
       - name: Message
         run: |
-          branch_name = "${{github.head_ref}}"
+          branch_name = "${GITHUB_HEAD_REF}"
           commit_message = $(git log -1 --pretty=%B)
           text = "${branch_name} - ${commit_message}"
           echo "commit_message = $text"
